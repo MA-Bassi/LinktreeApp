@@ -1,1 +1,58 @@
-<p>authentication-page works!</p>
+<div class="auth-page">
+  <div class="auth-page__section-left">
+    <div class="section-title">
+      <app-text text="Welcome back!" fontSize="font_48" fontWeight="fw_800" lineHeight="lh_1-2" fontColor="fc_black"/>
+      <app-text text="Log in to your dashboard" fontSize="font_16" lineHeight="lh_1-5" fontWeight="fw_400"
+                fontColor="fc_grey"/>
+    </div>
+    <form class="authentication-form">
+      <mat-form-field class="authentication-form__input">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput>
+      </mat-form-field>
+      <mat-form-field class="authentication-form__input">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="passwordFieldHidden() ? 'password' : 'text'"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="passwordFieldButtonClick($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="passwordFieldHidden()">
+          <mat-icon>{{ passwordFieldHidden() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+    <div style="display: flex">
+      <button mat-button>Log in with phone number</button>
+    </div>
+    <button mat-flat-button>Login</button>
+    <div class="section-error">
+      <app-text [text]="errorText" fontColor="fc_red" fontWeight="fw_400" fontSize="font_14" lineHeight="lh_1-5"/>
+    </div>
+    <div class="section-forgot">
+      <button mat-button>Forgot password?</button>
+      <button mat-button>Forgot username?</button>
+    </div>
+    <div class="section-condition">
+      <app-text text="OR" fontColor="fc_grey" fontWeight="fw_400" fontSize="font_16" lineHeight="lh_1-5"/>
+    </div>
+    <div class="section-external">
+      <button mat-raised-button>
+        <mat-icon>login</mat-icon>
+        Continue with Google
+      </button>
+      <button mat-raised-button>
+        <mat-icon>login</mat-icon>
+        Continue with Apple
+      </button>
+    </div>
+    <div class="section-no-account">
+      <app-text text="Don't have an account?"/>
+      <button mat-button>Sign up</button>
+    </div>
+  </div>
+  <div class="auth-page__section-right">
+    <app-image [url]="backgroundImageUrl" [placeholder]="backgroundImagePlaceholder"/>
+  </div>
+</div>
