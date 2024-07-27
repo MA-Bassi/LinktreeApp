@@ -54,7 +54,7 @@ export class AuthenticationPageComponent {
         this.authenticationError.set(true);
         return;
       }
-      this.router.navigateByUrl('/dash').finally(() => {});
+      this.router.navigateByUrl('/dash/links').finally(() => {});
     }
   }
 }

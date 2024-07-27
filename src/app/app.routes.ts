@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import {AuthenticationPageComponent} from "./pages/authentication-page/authentication-page.component";
 import {DashboardPageComponent} from "./pages/dashboard-page/dashboard-page.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
+import {DashLinksPageComponent} from "./pages/dash-links-page/dash-links-page.component";
 
 export const routes: Routes = [
   {
@@ -13,7 +14,18 @@ export const routes: Routes = [
     title: 'Dashboard',
     path: 'dash',
     component: DashboardPageComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
+    children: [
+        {
+            path: 'links',
+            component: DashLinksPageComponent,
+        },
+      {
+        path: '',
+        redirectTo: '/dash/links',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: '',

@@ -1,0 +1,43 @@
+<div class="dash-nav-container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="dash-nav-toolbar">
+    <button mat-icon-button (click)="sideNav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="dash-nav-toolbar__title">Dashboard</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #sideNav mode="over"
+                 fixedInViewport fixedTopGap="75">
+      <div class="sidenav-content">
+        <div class="sidenav-user-section">
+          <div class="user-initials">
+            <span>{{ currentUser.name.charAt(0).toUpperCase() }}</span>
+          </div>
+          <span class="user-uname">&commat;{{ currentUser.username }}</span>
+        </div>
+        <div>
+          <mat-nav-list>
+            @for (route of routes; track route) {
+              <a mat-list-item [href]="route.url" [activated]="route.url === currentUrl">
+                <mat-icon matListItemIcon>{{ route.icon }}</mat-icon>
+                {{ route.title }}</a>
+            }
+          </mat-nav-list>
+        </div>
+        <div class="sidenav-bottom-content">
+          <mat-nav-list>
+            <a mat-list-item>
+              <mat-icon matListItemIcon>logout</mat-icon>
+              <span>Logout</span>
+            </a>
+          </mat-nav-list>
+        </div>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <ng-content/>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
