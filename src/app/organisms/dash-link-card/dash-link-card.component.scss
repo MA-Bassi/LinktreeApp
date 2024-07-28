@@ -1,0 +1,24 @@
+.dash-link-card {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 24px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}

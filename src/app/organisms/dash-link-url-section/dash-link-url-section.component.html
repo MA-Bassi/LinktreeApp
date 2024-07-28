@@ -1,0 +1,7 @@
+<div class="dash-link-url-section">
+  <div class="section-content">
+    <app-text text="Your URL is live: "  lineHeight="lh_1-2" fontSize="font_14" fontWeight="fw_800" fontColor="fc_black"/>
+    <app-text [text]="URL" lineHeight="lh_1-2" fontSize="font_16" fontWeight="fw_400" fontColor="fc_grey"/>
+  </div>
+  <button mat-stroked-button (click)="onCopy()">Copy your URL</button>
+</div>

@@ -1,1 +1,10 @@
-<p>dash-links-page works!</p>
+<div class="dash-links-page">
+  <app-dash-link-url-section/>
+  <div class="dash-links-section">
+    <button class="dash-links-section__button" mat-flat-button (click)="onAddLink()">Add</button>
+    @for (link of links(); let index = $index; track index) {
+      <app-dash-link-card style="width: 70%" [index]="index" [title]="link.title" [url]="link.url" [isActive]="link.isActive"/>
+    }
+  </div>
+</div>
+

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Add/Update Link</h2>
+<mat-dialog-content>
+  <form [formGroup]="linkForm">
+    <mat-form-field class="input-field">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <mat-label>URL</mat-label>
+      <input matInput formControlName="url"/>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSubmit()" [disabled]="!linkForm.valid">Submit</button>
+</mat-dialog-actions>

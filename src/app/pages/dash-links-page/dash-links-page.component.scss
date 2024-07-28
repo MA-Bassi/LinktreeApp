@@ -1,0 +1,17 @@
+.dash-links-page {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 15%;
+
+  .dash-links-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__button {
+      width: 70%;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
