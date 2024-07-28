@@ -7,6 +7,7 @@ import {MatListModule} from "@angular/material/list";
 import {MediaMatcher} from "@angular/cdk/layout";
 import {Router} from "@angular/router";
 import {User} from "../../constants/users.constant";
+import {AuthenticationService} from "../../services/authentication.service";
 
 
 interface SideNavLink {
@@ -38,7 +39,7 @@ export class DashSideNavContainerComponent implements OnDestroy {
   private _mobileQueryListener: () => void = () => {
   };
 
-  constructor(media: MediaMatcher, router: Router) {
+  constructor(media: MediaMatcher, router: Router, private authService: AuthenticationService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
     this.currentUrl = router.url;
@@ -46,6 +47,10 @@ export class DashSideNavContainerComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
+  }
+
+  onLogout(): void {
+    this.authService.logout();
   }
 
 }
