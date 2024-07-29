@@ -34,6 +34,7 @@
       display: flex;
       justify-content: space-between;
       gap: 0.25rem;
+      margin: 0.5rem 0;
     }
 
     .section-condition {
@@ -54,5 +55,17 @@
     width: calc(100vw - 48%);
     position: relative;
     height: 100vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .auth-page {
+    &__section-left {
+      width: calc(100vw - 10%);
+    }
+
+    &__section-right {
+      display: none;
+    }
   }
 }

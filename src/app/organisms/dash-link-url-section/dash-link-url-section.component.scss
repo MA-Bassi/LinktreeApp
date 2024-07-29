@@ -7,3 +7,12 @@
   background: #dfe8f9;
   border-radius: 1rem;
 }
+
+@media  screen and (max-width: 768px)  {
+  .dash-link-url-section {
+    margin: 1rem 5%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+}
