@@ -32,9 +32,8 @@ export class DashLinksPageComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result !== undefined) {
-        this.linkService.addLink({ ...result, isActive: false })
+        this.linkService.addLink({ ...result, isActive: false, isLocked: false })
       }
     });
   }

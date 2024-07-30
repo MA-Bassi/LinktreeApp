@@ -4,13 +4,22 @@
       <app-text [text]="title" fontColor="fc_black" fontSize="font_16" lineHeight="lh_1-5" fontWeight="fw_800"/>
       <app-text [text]="url" fontColor="fc_grey" fontSize="font_14" fontWeight="fw_400" lineHeight="lh_1-5"/>
     </div>
-    <p><mat-slide-toggle [checked]="isActive" (change)="onActiveChange($event)"></mat-slide-toggle></p>
+    <p>
+      <mat-slide-toggle [disabled]="isLocked" [checked]="isActive" (change)="onActiveChange($event)"></mat-slide-toggle>
+    </p>
   </div>
   <div class="dash-link-card__action">
-    <button mat-icon-button (click)="onEdit()">
+    <button mat-icon-button (click)="onLockedChange()">
+      @if (isLocked) {
+        <mat-icon>lock</mat-icon>
+      } @else {
+        <mat-icon>lock_open</mat-icon>
+      }
+    </button>
+    <button mat-icon-button [disabled]="isLocked" (click)="onEdit()">
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button (click)="onRemove()">
+    <button mat-icon-button [disabled]="isLocked" (click)="onRemove()">
       <mat-icon>delete</mat-icon>
     </button>
   </div>

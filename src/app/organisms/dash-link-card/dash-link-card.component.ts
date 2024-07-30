@@ -24,13 +24,19 @@ export class DashLinkCardComponent {
   @Input({ required: true }) title: string = '';
   @Input({ required: true }) url: string = '';
   @Input({ required: true }) isActive: boolean = false;
+  @Input({ required: true }) isLocked: boolean = false;
   readonly dialog = inject(MatDialog);
 
   constructor(private linkService: LinkService) {
   }
 
   onActiveChange(event: MatSlideToggleChange) {
-    this.linkService.editLink({title: this.title, url: this.url, isActive: event.checked }, this.index)
+    this.linkService.editLink({title: this.title, url: this.url, isActive: event.checked, isLocked: this.isLocked }, this.index)
+  }
+
+  onLockedChange() {
+    this.linkService.editLink({title: this.title, url: this.url, isActive: this.isActive, isLocked: !this.isLocked }, this.index)
+
   }
 
   onRemove(){
